@@ -5,6 +5,13 @@ const NOTES_KEY = 'notesDB'
 
 _createNotes()
 
+export const noteService = {
+  notesQuery,
+  getNote,
+  removeNote,
+  saveNote,
+}
+
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY)
   if (!notes || !notes.length) {
@@ -50,8 +57,31 @@ function _createNotes() {
   }
 }
 
-function query() {
-    return storageService.query(NOTES_KEY)
+function notesQuery(filterBy = {}) {
+  return storageService.query(NOTES_KEY).then(notes => {
+    if (filterBy.txt) {
+      const regex = new RegExp(filterBy.txt, 'i')
+      notes = notes.filter(note => regex.test(note.info.title))
+    }
+    if (filterBy.type) {
+      notes = notes.filter(note => note.type === filterBy.type)
+    }
+    return notes
+  })
 }
 
+function getNote(noteId) {
+  return storageService.get(NOTES_KEY, noteId)
+}
 
+function removeNote(NoteId) {
+  return storageService.remove(NOTES_KEY, NoteId)
+}
+
+function saveNote(note) {
+  if (note.id) {
+    return storageService.put(NOTES_KEY, note)
+  } else {
+    return storageService.post(NOTES_KEY, note)
+  }
+}
