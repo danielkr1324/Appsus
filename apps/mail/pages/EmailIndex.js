@@ -1,7 +1,19 @@
+// import { emailService } from '../services/email.service.js'
+
+import EmailFilter from '../cmps/EmailFilter.js'
+import EmailList from '../cmps/EmailList.js'
+import EmailNav from '../cmps/EmailNav.js'
+
 export default {
     props: [],
     template: `
-<h1>Email!!!!!!!</h1>
+    <section class="email-index">
+    <h1>Email!!!!!!!</h1>
+
+    <EmailNav/>
+    <EmailFilter/>
+    <EmailList/>
+    </section>
 `,
 
     data() {
@@ -19,7 +31,8 @@ export default {
 
     },
     components: {
-
-    },
-    emits: [],
+        EmailNav,
+        EmailFilter,
+        EmailList
+    }
 }
