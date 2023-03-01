@@ -1,7 +1,10 @@
 export default {
     props: [],
     template: `
-<h1>Filter</h1>
+    <section class="email-filter">
+        <span>Filter</span>
+        <input type="search">
+    </section>
 `,
 
     data() {

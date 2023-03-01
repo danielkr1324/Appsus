@@ -1,7 +1,12 @@
 export default {
     props: [],
     template: `
-<h1>NAV</h1>
+    <section class="email-nav">
+<h1>Inbox</h1>
+<h1>Sent</h1>
+<h1>Unread</h1>
+<h1>Stared</h1>
+</section>
 `,
 
     data() {

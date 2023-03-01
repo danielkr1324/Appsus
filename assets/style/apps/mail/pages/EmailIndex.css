@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+.email-index {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 5px;
+
+    min-width: 700px;
+    padding: 20px;
+}

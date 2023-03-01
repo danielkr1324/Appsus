@@ -1,7 +1,10 @@
 export default {
     props: [],
     template: `
-<h1>Compose</h1>
+    <section class="email-compose">
+        <button class="btn-compose">Compose</button>
+    </section>
+
 `,
 
     data() {
