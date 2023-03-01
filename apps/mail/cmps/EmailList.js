@@ -7,7 +7,8 @@ export default {
     <section class="email-list">
         <ul>
             <li v-for="email in emails" :key="email.id">
-            <EmailPreview :email="email"/>
+                <EmailPreview :email="email"/>
+                <button class="btn-email-remove" @click="remove(email.id)"> X </button>
             </li>
         </ul>
     </section>
@@ -19,7 +20,9 @@ export default {
         }
     },
     methods: {
-
+        remove(emailId) {
+            this.$emit('remove', emailId)
+        },
     },
     computed: {
 

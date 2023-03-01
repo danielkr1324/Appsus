@@ -10,10 +10,11 @@ export default {
     template: `
     <section class="email-index">
 
-    <EmailNav/>
-    <EmailCompose/>
-    <EmailFilter/>
-    <EmailList :emails="emails"/>
+        <EmailNav/>
+        <EmailCompose/>
+        <EmailFilter/>
+        <EmailList :emails="emails"
+            @remove="removeEmail" />
     </section>
 `,
 
@@ -24,7 +25,17 @@ export default {
         }
     },
     methods: {
-
+        removeEmail(emailId) {
+            emailService.removeEmail(emailId)
+                .then(() => {
+                    const idx = this.emails.findIndex(email => email.id === emailId)
+                    this.emails.splice(idx, 1)
+                    // showSuccessMsg('Email removed')
+                })
+                .catch(err => {
+                    // showErrorMsg('Email remove failed')
+                })
+        },
     },
     computed: {
 

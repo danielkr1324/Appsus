@@ -4,8 +4,9 @@ export default {
 <article class="email-preview">
 
 <section class="email-preview">
-    <h2>{{ email.subject }}</h2>
-    <h3>{{ email.body }}</h3>
+    <span class="preview-from"> {{ email.from }} </span> |
+    <span class="preview-subject"> {{ email.subject }} </span> |
+    <span class="preview-body"> {{ email.body }} </span>
 </section>
     
 </article>

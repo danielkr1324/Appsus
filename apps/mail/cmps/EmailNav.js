@@ -6,6 +6,7 @@ export default {
 <h1>Sent</h1>
 <h1>Unread</h1>
 <h1>Stared</h1>
+<h1>Trash</h1>
 </section>
 `,
 
