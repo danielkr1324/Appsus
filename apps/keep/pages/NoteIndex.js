@@ -5,7 +5,7 @@ import NoteAdd from '../cmps/NoteAdd.js'
 export default {
   template: `
         <section class="note-index">
-           <NoteAdd />
+           <NoteAdd @saveNote="saveNote" />
            <NoteList :notes="notes"/>
         </section>
     `,
@@ -14,6 +14,11 @@ export default {
       notes: [],
       filterBy: {},
     }
+  },
+  methods: {
+    saveNote(note) {
+      noteService.saveNote(note).then(note => this.notes.push(note))
+    },
   },
   created() {
     noteService.notesQuery().then(notes => (this.notes = notes))

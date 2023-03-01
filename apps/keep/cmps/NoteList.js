@@ -7,7 +7,8 @@ export default {
             <ul>
                     
                 <li v-for="note in notes" :key="note.id">
-                    <NotePreview :note="note" />
+                    <NotePreview
+                     :note="note" />
                 </li>
             </ul>
         </section>
