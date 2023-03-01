@@ -1,5 +1,5 @@
-// import { utilService } from '../../../services/util.service'
-// import { storageService } from '../../../services/async-storage.service'
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
 
 const NOTES_KEY = 'notesDB'
 
