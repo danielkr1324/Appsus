@@ -44,12 +44,28 @@ function _createNotes() {
         id: 'n103',
         type: 'NoteTodos',
         isPinned: false,
+
         info: {
           title: 'Get my stuff together',
           todos: [
             { txt: 'Driving license', doneAt: null },
             { txt: 'Coding power', doneAt: 187111111 },
           ],
+        },
+        style: {
+          backgroundColor: '#607',
+        },
+      },
+      {
+        id: 'n1111',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+          url: 'http://some-img/me',
+          title: 'Gimme scoobydoo',
+        },
+        style: {
+          backgroundColor: '#607',
         },
       },
     ]
