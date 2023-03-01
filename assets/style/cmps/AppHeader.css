@@ -1,7 +1,14 @@
 .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--clr5);
   color: var(--secondary-clr1);
-  padding: 1em;
+  padding: 1em 3em;
+}
+
+.nav-link {
+  margin-inline: 10px;
 }
 
 @media(max-width: 720px) {
