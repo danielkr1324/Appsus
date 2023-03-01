@@ -1,5 +1,5 @@
 import HomePage from './views/HomePage.js'
-// import AboutUs from './views/AboutUs.js'
+import AboutUs from './views/AboutUs.js'
 import EmailIndex from './apps/mail/pages/EmailIndex.js'
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
 
@@ -12,10 +12,10 @@ const routerOptions = {
       path: '/',
       component: HomePage,
     },
-    // {
-    //   path: '/about',
-    //   component: AboutUs,
-    // },
+    {
+      path: '/about',
+      component: AboutUs,
+    },
     {
       path: '/email',
       component: EmailIndex,
