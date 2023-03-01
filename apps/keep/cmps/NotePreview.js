@@ -1,3 +1,8 @@
+import NoteTodos from "./NoteTodos.js"
+import NoteImg from "./NoteImg.js"
+import NoteTxt from "./NoteTxt.js"
+import NoteVideo from "./NoteVideo.js"
+
 export default {
   props: ['note'],
   template: `
@@ -15,4 +20,10 @@ export default {
       }
     },
   },
+  components: {
+    NoteTodos,
+    NoteTxt,
+    NoteImg,
+    NoteVideo
+  }
 }
