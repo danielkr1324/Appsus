@@ -1,20 +1,18 @@
 import { emailService } from '../services/email.service.js'
 
-// import EmailFilter from '../cmps/EmailFilter.js'
+import EmailFilter from '../cmps/EmailFilter.js'
 import EmailList from '../cmps/EmailList.js'
-// import EmailNav from '../cmps/EmailNav.js'
-// import EmailCompose from '../cmps/EmailCompose.js'
+import EmailNav from '../cmps/EmailNav.js'
+import EmailCompose from '../cmps/EmailCompose.js'
 
 export default {
     props: [],
     template: `
     <section class="email-index">
-    <h1>Email!!!!!!!</h1>
 
-
-    <!-- <EmailNav/> -->
-    <!-- <EmailCompose/> -->
-    <!-- <EmailFilter/> -->
+    <EmailNav/>
+    <EmailCompose/>
+    <EmailFilter/>
     <EmailList :emails="emails"/>
     </section>
 `,
@@ -36,9 +34,9 @@ export default {
             .then(emails => this.emails = emails)
     },
     components: {
-        // EmailNav,
-        // EmailFilter,
+        EmailNav,
+        EmailFilter,
         EmailList,
-        // EmailCompose
+        EmailCompose
     }
 }

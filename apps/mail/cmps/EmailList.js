@@ -9,7 +9,6 @@ export default {
             <ul>
                 <li v-for="email in emails" :key="email.id">
                     <EmailPreview :email="email"/>
-                    dfgbfd
                 </li>
             </ul>
         </section>
