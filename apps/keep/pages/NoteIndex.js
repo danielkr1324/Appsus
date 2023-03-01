@@ -4,7 +4,6 @@ import NoteList from '../cmps/NoteList.js'
 export default {
   template: `
         <section class="note-index">
-           <div>notes</div>
            <NoteList
             :notes="notes"
            />
