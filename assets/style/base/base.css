@@ -2,9 +2,7 @@
   box-sizing: border-box;
 }
 
-html {
-  
-}
+html {}
 
 body {
   margin: 0;
@@ -43,8 +41,8 @@ object {
 /* tap targets: */
 nav a,
 button {
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 30px;
+  min-height: 30px;
 }
 
 /* Simple and useful CSS Debugging Technique */
@@ -52,3 +50,8 @@ button {
   outline: 1px solid gold
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

@@ -29,7 +29,7 @@ export default {
             emailService.getEmail(this.emailId)
                 .then(email => {
                     this.email = email
-                    console.log('email : ', email)
+                    // console.log('email : ', email)
                 })
         }
     },

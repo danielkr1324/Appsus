@@ -20,6 +20,9 @@ const routerOptions = {
     {
       path: '/email',
       component: EmailIndex,
+      children: [
+
+      ]
     },
     {
       path: '/keep',

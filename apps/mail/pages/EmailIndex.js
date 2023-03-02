@@ -12,7 +12,7 @@ export default {
         <EmailNav/>
         <EmailFilter/>
         <EmailList :emails="emails"
-        @remove="removeEmail" />
+        @removeEmail="removeEmail" />
         <!-- <EmailCompose/> -->
     </section>
     `,
@@ -24,6 +24,7 @@ export default {
     },
     methods: {
         removeEmail(emailId) {
+            console.log('Here')
             emailService.removeEmail(emailId)
                 .then(() => {
                     const idx = this.emails.findIndex(email => email.id === emailId)
