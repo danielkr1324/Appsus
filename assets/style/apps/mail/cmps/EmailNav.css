@@ -1,12 +1,31 @@
 .email-nav {
     display: grid;
     grid-row: 1/4;
-    background-color: bisque;
+    background-color: rgb(237, 237, 237);
+}
+
+.email-nav div {
+    margin-bottom: 15px;
+}
+
+.email-nav i {
+    margin-left: 5px;
+}
+
+.email-nav span {
+    margin-left: 20px;
 }
 
 .btn-compose {
+    border: none;
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
     margin: 10px;
 }
+
+/* .btn-compose:hover {
+     box-shadow: black; 
+ }  */
 
 .btns-nav {
     margin: 10px;

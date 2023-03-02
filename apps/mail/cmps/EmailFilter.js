@@ -2,8 +2,7 @@ export default {
     props: [],
     template: `
     <section class="email-filter">
-        <span>Filter</span>
-        <input type="search">
+        <input type="search" placeholder="🔍 Search mail">
     </section>
     `,
     data() {

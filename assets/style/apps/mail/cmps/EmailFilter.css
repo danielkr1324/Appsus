@@ -1,4 +1,10 @@
 .email-filter {
     grid-column: 2/3;
-    background-color: rgb(171, 183, 206);
+}
+
+.email-filter input {
+    width: 500px;
+    min-width: 300px;
+    border-radius: 8px;
+    background-color: aliceblue;
 }

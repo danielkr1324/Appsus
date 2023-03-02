@@ -4,8 +4,7 @@ export default {
         <section class="email-preview" :style="isRead" @click="email.isRead = true">
         <RouterLink :to="'/email/'+email.id">
             <span class="preview-from"> {{ email.from }} </span> |
-            <span class="preview-subject"> {{ email.subject }} </span> |
-            <span class="preview-body"> {{ email.body }} </span>
+            <span class="preview-subject"> {{ email.subject }}| {{ email.body }} </span>
             </RouterLink>
         </section>
             <button class="btn-email-remove" @click="removeEmail(email.id)"> X </button>
