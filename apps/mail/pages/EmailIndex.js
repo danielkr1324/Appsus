@@ -46,8 +46,8 @@ export default {
     },
     components: {
         EmailNav,
+        EmailCompose,
         EmailFilter,
         EmailList,
-        EmailCompose
     }
 }

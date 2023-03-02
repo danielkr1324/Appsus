@@ -1,4 +1,9 @@
 .email-preview {
     padding: 5px;
-    border-bottom: 1px solid black;
+    outline: 1px solid rgb(161, 161, 161);
+}
+
+.email-preview:hover {
+    outline: auto;
+    transition: 500ms;
 }

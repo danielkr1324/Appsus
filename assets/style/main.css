@@ -9,8 +9,10 @@
 @import 'base/forms.css';
 
 /* General Components */
-@import 'cmps/HomePage.css';
+@import 'pages/HomePage.css';
+@import 'pages/AboutUs.css';
 @import 'cmps/AppHeader.css';
+@import 'cmps/AppFooter.css';
 @import 'cmps/UserMsg.css';
 
 /*Mail Components */
@@ -26,4 +28,5 @@
 
 /* Index */
 @import 'apps/mail/pages/EmailIndex.css';
+@import 'apps/mail/pages/EmailDetails.css';
 @import 'apps/note/NoteIndex.css';
