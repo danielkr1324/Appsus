@@ -47,8 +47,8 @@ export default {
   },
   components: {
     NoteTodos,
+    NoteVideo,
     NoteTxt,
     NoteImg,
-    NoteVideo,
   },
 }

@@ -11,6 +11,8 @@ export default {
             @noteDeleted="deleteNote"
             @noteDuplicate="duplicateNote"/>
         </section>
+        
+        
     `,
   data() {
     return {

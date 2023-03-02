@@ -20,15 +20,16 @@ function _createNotes() {
   if (!notes || !notes.length) {
     notes = [
       {
-        id: utilService.makeId(),
-        type: 'NoteViedo',
+        id: '333ewe',
+        createdAt: 1112222,
+        type: 'NoteVideo',
         isPinned: false,
+        style: {
+          backgroundColor: utilService.getRandomColor(),
+        },
         info: {
           url: 'https://www.youtube.com/watch?v=uC9_62BmKyE&t=174s',
           title: 'Dynamic Components',
-        },
-        style: {
-          backgroundColor: utilService.getRandomColor(),
         },
       },
       {
@@ -46,6 +47,7 @@ function _createNotes() {
       },
       {
         id: 'n102',
+        createdAt: 1112222,
         type: 'NoteImg',
         isPinned: false,
         info: {
@@ -58,6 +60,7 @@ function _createNotes() {
       },
       {
         id: 'n103',
+        createdAt: 1112222,
         type: 'NoteTodos',
         isPinned: false,
 
