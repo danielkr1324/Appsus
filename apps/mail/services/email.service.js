@@ -27,6 +27,36 @@ function _createEmails() {
             },
             {
                 id: 'e102',
+                subject: 'That is another mail',
+                body: 'A new mail',
+                isRead: false,
+                sentAt: 1551133900000,
+                removedAt: null,
+                from: 'puki@kuki.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e103',
+                subject: 'WOW fourth mail!',
+                body: 'A new mail',
+                isRead: true,
+                sentAt: 1551133900000,
+                removedAt: null,
+                from: 'lucky@kuki.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e104',
+                subject: 'OK that is the last one',
+                body: 'A new mail',
+                isRead: false,
+                sentAt: 1551133900000,
+                removedAt: null,
+                from: 'muki@kuki.com',
+                to: 'user@appsus.com'
+            },
+            {
+                id: 'e105',
                 subject: 'Halo Mail',
                 body: 'A new mail',
                 isRead: false,
@@ -35,7 +65,6 @@ function _createEmails() {
                 from: 'puki@kuki.com',
                 to: 'muki@muki.com'
             },
-
         ]
         utilService.saveToStorage(EMAIL_KEY, emails)
     }

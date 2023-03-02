@@ -6,7 +6,7 @@ export default {
     
     <section class="email-list">
         <ul>
-            <li v-for="email in emails">
+            <li v-for="email in emails" :key="email">
                 <EmailPreview :email="email" @removeEmail="removeEmail" />
             </li>
         </ul>

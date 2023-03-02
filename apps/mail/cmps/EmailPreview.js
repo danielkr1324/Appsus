@@ -1,14 +1,14 @@
 export default {
     props: ['email'],
     template: `
-        <section class="email-preview" :style="isRead" @click.stop="email.isRead = true">
+        <section class="email-preview" :style="isRead" @click="email.isRead = true">
         <RouterLink :to="'/email/'+email.id">
             <span class="preview-from"> {{ email.from }} </span> |
             <span class="preview-subject"> {{ email.subject }} </span> |
             <span class="preview-body"> {{ email.body }} </span>
             </RouterLink>
         </section>
-            <button class="btn-email-remove" @click.stop="removeEmail(email.id)"> X </button>
+            <button class="btn-email-remove" @click="removeEmail(email.id)"> X </button>
     `,
     data() {
         return {
