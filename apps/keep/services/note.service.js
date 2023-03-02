@@ -25,7 +25,7 @@ function _createNotes() {
         type: 'NoteVideo',
         isPinned: false,
         style: {
-          backgroundColor: utilService.getRandomColor(),
+          backgroundColor: '#F5FFC9',
         },
         info: {
           url: 'https://www.youtube.com/embed/IQw-4JABPCM',
@@ -38,7 +38,7 @@ function _createNotes() {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-          backgroundColor: '#00d',
+          backgroundColor: '#F9DBBB',
         },
         info: {
           title: 'Do As I Say!!',
@@ -55,7 +55,7 @@ function _createNotes() {
           title: 'Bobi and Me',
         },
         style: {
-          backgroundColor: '#00d',
+          backgroundColor: '#DFFFD8',
         },
       },
       {
@@ -72,7 +72,7 @@ function _createNotes() {
           ],
         },
         style: {
-          backgroundColor: '#607',
+          backgroundColor: '#B6EADA',
         },
       },
       {
@@ -84,7 +84,7 @@ function _createNotes() {
           title: 'Gimme scoobydoo',
         },
         style: {
-          backgroundColor: '#607',
+          backgroundColor: '#FFE7CC',
         },
       },
     ]

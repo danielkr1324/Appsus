@@ -6,7 +6,7 @@ export default {
             :src="note.info.url">
         </iframe>
                 <h2>{{note.info.title}}</h2>
-             pppppp
+             
         </section>
     `,
 }

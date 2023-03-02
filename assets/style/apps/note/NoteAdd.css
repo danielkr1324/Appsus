@@ -1,0 +1,29 @@
+.note-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(68, 58, 58, 0.5);
+}
+
+.add-note-title {
+    color: #5BC0F8;
+}
+
+.note-add input {
+    border-radius: 20px;
+    border: none;
+    width: 300px;
+}
+ .btn-save {
+    background: none;
+    border-radius: 20px;
+    border: none;
+    background-color: #B9F3E4;
+    padding: 0 10px;
+    transition: 0.3s;
+ }
+
+.btn-save:hover {
+    scale: 1.1;
+}

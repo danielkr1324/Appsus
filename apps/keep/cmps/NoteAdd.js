@@ -4,11 +4,12 @@ import { noteService } from '../services/note.service.js'
 export default {
   template: `
     <section class="note-add">
-        <div class="title-input">
+        <h2 class="add-note-title">Add A Note</h2>
+        <div>
          <input type="text" @focus="toggleFocus"   class="title-input" v-model="note.info.title" placeholder="Add title" />
             <div @focus="toggleFocus" @blur="toggleFocus" v-show="isTitleFocused">
                 <input type="text" v-model="note.info.txt"  placeholder="Add text"/>
-                <button @click="saveNote" >save note</button>
+                <button class="btn-save" @click="saveNote" >save note</button>
             </div>
         </div>
     </section>

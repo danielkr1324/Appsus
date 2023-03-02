@@ -2,7 +2,6 @@
 
     text-shadow: #F7F1E5 0px 0 2px;
     margin: 20px;
-    min-width: 250px;
     max-width: 400px;
     border-radius: 7px;
     transition: 0.3s;
@@ -12,8 +11,20 @@
 
 }
 
-.note-preview:hover {
+.note-icon {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    visibility: hidden;
+}
+
+.note-preview:hover{
     scale: 1.05;
     -webkit-box-shadow: 0px 2px 24px 6px rgba(0,0,0,0.63); 
     box-shadow: 0px 2px 24px 6px rgba(0,0,0,0.63);
 }
+
+.note-preview:hover .note-icon{
+    visibility: visible;
+}
+
