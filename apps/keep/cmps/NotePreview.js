@@ -10,6 +10,8 @@ export default {
             <h2>{{ note.info.title }}</h2>
             <h3>{{ note.info.txt }}</h3>
 
+          
+
             <button title="delete note"
               @click="deleteNote(note.id)" 
               class="note-icon delete" >
@@ -18,8 +20,8 @@ export default {
 
             <button title="duplicate note" 
               @click="duplicateNote(note.id)"
-              class="note-icon duplicate">
-              <i class="fa-solid fa-clone"></i>
+               class="note-icon duplicate">
+               <i class="fa-solid fa-clone"></i>
             </button>
 
 
@@ -37,12 +39,13 @@ export default {
   methods: {
     deleteNote(noteId) {
       this.$emit('noteDeleted', noteId)
-      if (this.editedNote) this.$emit('editor-opened')
+      if (this.editedNote) this.$emit('editorOpened')
       this.editedNote = null
     },
     duplicateNote(noteId) {
-      this.$emit('note-duplicate', noteId)
+      this.$emit('noteDuplicate', noteId)
     },
+    
   },
   components: {
     NoteTodos,

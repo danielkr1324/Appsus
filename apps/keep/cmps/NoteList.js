@@ -10,7 +10,7 @@ export default {
                     <NotePreview
                      :note="note" 
                      @noteDeleted="deleteNote"
-                     @noteDuplicate="duplicateNote" />
+                     @noteDuplicate="duplicateNote"/>
                 </li>
             </ul>
         </section>

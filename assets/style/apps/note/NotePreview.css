@@ -1,8 +1,14 @@
 .note-preview {
-    width: 200px;
-    height: 200px;
+
+    text-shadow: #F7F1E5 0px 0 2px;
+    overflow-wrap: break-word;
+    margin: 20px;
+    min-width: min(200px, min-content);
     border-radius: 7px;
     transition: 0.3s;
+    break-inside: avoid;
+    margin-top: 0;
+
 }
 
 .note-preview:hover {
