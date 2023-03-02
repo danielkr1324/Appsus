@@ -28,7 +28,7 @@ function _createNotes() {
           backgroundColor: utilService.getRandomColor(),
         },
         info: {
-          url: 'https://www.youtube.com/watch?v=uC9_62BmKyE&t=174s',
+          url: 'https://www.youtube.com/embed/IQw-4JABPCM',
           title: 'Dynamic Components',
         },
       },
