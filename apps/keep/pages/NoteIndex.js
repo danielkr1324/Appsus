@@ -6,7 +6,10 @@ export default {
   template: `
         <section class="note-index">
            <NoteAdd @saveNote="saveNote" />
-           <NoteList :notes="notes"/>
+           <NoteList
+            :notes="notes"
+            @noteDeleted="deleteNote"
+            @noteDuplicate="duplicateNote"/>
         </section>
     `,
   data() {
@@ -18,6 +21,15 @@ export default {
   methods: {
     saveNote(note) {
       noteService.saveNote(note).then(note => this.notes.push(note))
+    },
+    deleteNote(noteId) {
+      console.log(noteId)
+      noteService.removeNote(noteId)
+      let noteIndx = this.notes.findIndex(note => note.id === noteId)
+      this.notes.splice(noteIndx, 1)
+    },
+    duplicateNote(noteId) {
+      noteService.duplicateNote(noteId).then(note => this.notes.push(note))
     },
   },
   created() {

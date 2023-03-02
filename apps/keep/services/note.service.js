@@ -10,6 +10,9 @@ export const noteService = {
   getNote,
   removeNote,
   saveNote,
+  editNote,
+  updateBgc,
+  duplicateNote,
 }
 
 function _createNotes() {
@@ -95,11 +98,68 @@ function removeNote(NoteId) {
 }
 
 function saveNote(note) {
-  if (note.id) {
-    return storageService.put(NOTES_KEY, note)
-  } else {
-    return storageService.post(NOTES_KEY, note)
+  if (note.type === 'NoteTxt') {
+    note = {
+      id: utilService.makeId(),
+      type: 'NoteTxt',
+      isPinned: false,
+      info: {
+        title: note.info.title,
+        txt: note.info.txt,
+      },
+      style: {
+        backgroundColor: utilService.getRandomColor(),
+      },
+    }
+  } else if (note.type === 'NoteTodos') {
+    note = {
+      id: utilService.makeId(),
+      type: 'NoteTodos',
+      isPinned: false,
+      info: {
+        label: note.info.label,
+        todos: note.info.todos,
+      },
+      style: {
+        backgroundColor: utilService.getRandomColor(),
+      },
+    }
+  } else if (note.type === 'NoteImg') {
+    note = {
+      id: utilService.makeId(),
+      type: note.type,
+      isPinned: false,
+      info: {
+        url: note.info.url,
+        title: note.info.title,
+      },
+      style: {
+        backgroundColor: utilService.getRandomColor(),
+      },
+    }
   }
+  return notesQuery().then(notes => {
+    notes.push(note)
+    return storageService.post(NOTES_KEY, note)
+  })
 }
 
+function editNote(noteId, newNote) {
+  return storageService.get(NOTES_KEY, noteId).then(note => {
+    note = newNote
+    return storageService.put(NOTES_KEY, note)
+  })
+}
 
+function updateBgc(noteId, bgc) {
+  return storageService.get(NOTES_KEY, noteId).then(note => {
+    note.style.backgroundColor = bgc
+    return storageService.put(NOTES_KEY, note)
+  })
+}
+
+function duplicateNote(noteId) {
+  return storageService.get(NOTES_KEY, noteId).then(note => {
+    return storageService.post(NOTES_KEY, note)
+  })
+}

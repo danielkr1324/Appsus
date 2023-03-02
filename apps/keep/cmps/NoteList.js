@@ -8,11 +8,21 @@ export default {
                     
                 <li v-for="note in notes" :key="note.id">
                     <NotePreview
-                     :note="note" />
+                     :note="note" 
+                     @noteDeleted="deleteNote"
+                     @noteDuplicate="duplicateNote" />
                 </li>
             </ul>
         </section>
     `,
+  methods: {
+    deleteNote(noteId) {
+      this.$emit('noteDeleted', noteId)
+    },
+    duplicateNote(noteId) {
+      this.$emit('note-duplicate', noteId)
+    },
+  },
   components: {
     NotePreview,
   },
