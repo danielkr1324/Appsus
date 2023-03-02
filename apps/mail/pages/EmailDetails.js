@@ -7,17 +7,17 @@ import EmailCompose from '../cmps/EmailCompose.js'
 export default {
     props: [],
     template: `
-        <section class="email-details" if="email">
-            <EmailNav/>
-            <EmailCompose/>
-            <EmailFilter/>
-            <!-- <pre> {{email}} </pre> -->
-            <div class="email-body">
-                <h2 class="details-from"> {{ email.from }} </h2>
-                <h3 class="details-subject"> {{ email.subject }} </h3> 
-                <h3 class="details-body"> {{ email.body }} </h3>
-            </div>
-        </section>
+    <section class="email-details" if="email">
+        <EmailNav/>
+        <EmailFilter/>
+        <!-- <pre> {{email}} </pre> -->
+        <div class="email-body">
+            <h2 class="details-from"> {{ email.from }} </h2>
+            <h3 class="details-subject"> {{ email.subject }} </h3> 
+            <h3 class="details-body"> {{ email.body }} </h3>
+        </div>
+        <!-- <EmailCompose/> -->
+    </section>
     `,
     data() {
         return {
@@ -42,9 +42,9 @@ export default {
         this.loadEmail()
     },
     components: {
-        EmailCompose,
         EmailNav,
         EmailFilter,
+        // EmailCompose,
     },
     emits: [],
 }

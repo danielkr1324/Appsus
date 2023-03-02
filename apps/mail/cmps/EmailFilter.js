@@ -5,11 +5,9 @@ export default {
         <span>Filter</span>
         <input type="search">
     </section>
-`,
-
+    `,
     data() {
         return {
-
         }
     },
     methods: {

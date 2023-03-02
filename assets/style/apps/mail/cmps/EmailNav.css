@@ -1,4 +1,13 @@
 .email-nav {
-    grid-row: 2/4;
+    display: grid;
+    grid-row: 1/4;
     background-color: bisque;
+}
+
+.btn-compose {
+    margin: 10px;
+}
+
+.btns-nav {
+    margin: 10px;
 }

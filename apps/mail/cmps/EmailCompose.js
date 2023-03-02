@@ -2,10 +2,9 @@ export default {
     props: [],
     template: `
     <section class="email-compose">
-        <button class="btn-compose">Compose</button>
+        <h1>Compose Modal</h1>
     </section>
-
-`,
+    `,
 
     data() {
         return {

@@ -9,15 +9,13 @@ export default {
     props: [],
     template: `
     <section class="email-index">
-
         <EmailNav/>
-        <EmailCompose/>
         <EmailFilter/>
         <EmailList :emails="emails"
-            @remove="removeEmail" />
+        @remove="removeEmail" />
+        <!-- <EmailCompose/> -->
     </section>
-`,
-
+    `,
     data() {
         return {
             emails: [],
@@ -46,8 +44,8 @@ export default {
     },
     components: {
         EmailNav,
-        EmailCompose,
         EmailFilter,
         EmailList,
+        // EmailCompose,
     }
 }
