@@ -1,0 +1,9 @@
+.note-todos ul{
+    width: 100%;
+    padding: 0;
+}
+
+.note-todos ul li{
+    display: flex;
+    flex-direction: column;
+}

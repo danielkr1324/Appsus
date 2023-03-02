@@ -1,10 +1,15 @@
 export default {
   props: ['note'],
   template: `
-        <section v-if="note" class="note-todo">
-            <h4>{{note.info.label}}</h4>
+        <section v-if="note" class="note-todos">
+            <h2>{{note.info.title}}</h2>
             <ul>
-                <li v-for="todo in note.info.todos" :style="todo.doneAt ? 'text-decoration: line-through' : ''" @click="toggleTodo(todo.id, note.id, $event)">{{todo.txt}}</li>
+                <li v-for="todo in note.info.todos" 
+                
+                 @click.stop="toggleTodo(todo.id, note.id, $event)">
+
+                <p> {{todo.txt}} </p>
+              </li>
             </ul>
         </section>
     `,
@@ -12,8 +17,7 @@ export default {
     return {}
   },
   methods: {
-    toggleTodo(todoId, noteId, ev) {
-      ev.stopPropagation()
+    toggleTodo(todoId, noteId) {
       this.$emit('todo-done', todoId, noteId)
     },
   },

@@ -20,6 +20,18 @@ function _createNotes() {
   if (!notes || !notes.length) {
     notes = [
       {
+        id: utilService.makeId(),
+        type: 'NoteViedo',
+        isPinned: false,
+        info: {
+          url: 'https://www.youtube.com/watch?v=uC9_62BmKyE&t=174s',
+          title: 'Dynamic Components',
+        },
+        style: {
+          backgroundColor: utilService.getRandomColor(),
+        },
+      },
+      {
         id: 'n101',
         createdAt: 1112222,
         type: 'NoteTxt',
@@ -28,6 +40,7 @@ function _createNotes() {
           backgroundColor: '#00d',
         },
         info: {
+          title: 'Do As I Say!!',
           txt: 'Fullstack Me Baby!',
         },
       },
@@ -36,7 +49,7 @@ function _createNotes() {
         type: 'NoteImg',
         isPinned: false,
         info: {
-          url: 'http://some-img/me',
+          url: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
           title: 'Bobi and Me',
         },
         style: {
@@ -64,7 +77,7 @@ function _createNotes() {
         type: 'NoteImg',
         isPinned: false,
         info: {
-          url: 'http://some-img/me',
+          url: 'https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg',
           title: 'Gimme scoobydoo',
         },
         style: {
@@ -74,6 +87,13 @@ function _createNotes() {
     ]
     utilService.saveToStorage(NOTES_KEY, notes)
   }
+}
+
+function youtube_parser(url) {
+  var regExp =
+    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+  var match = url.match(regExp)
+  return match && match[7].length == 11 ? match[7] : false
 }
 
 function notesQuery(filterBy = {}) {
@@ -131,6 +151,21 @@ function saveNote(note) {
       isPinned: false,
       info: {
         url: note.info.url,
+        title: note.info.title,
+      },
+      style: {
+        backgroundColor: utilService.getRandomColor(),
+      },
+    }
+  } else if (note.type === 'NoteVideo') {
+    const URL = youtube_parser(note.info.url)
+
+    note = {
+      id: utilService.makeId(),
+      type: note.type,
+      isPinned: false,
+      info: {
+        url: `https://www.youtube.com/embed/${URL}`,
         title: note.info.title,
       },
       style: {

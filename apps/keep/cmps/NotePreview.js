@@ -7,9 +7,8 @@ export default {
   props: ['note'],
   template: `
         <article class="note-preview"  :style="styleObject">
-            <h2>{{ note.info.title }}</h2>
-            <h3>{{ note.info.txt }}</h3>
-
+        <component :is="note.type" 
+          :note="note"/>
           
 
             <button title="delete note"
@@ -45,7 +44,6 @@ export default {
     duplicateNote(noteId) {
       this.$emit('noteDuplicate', noteId)
     },
-    
   },
   components: {
     NoteTodos,
