@@ -55,6 +55,7 @@ function emailsQuery(filterBy = {}) {
 }
 
 function getEmail(emailId) {
+    console.log(emailId);
     return storageService.get(EMAIL_KEY, emailId)
 }
 

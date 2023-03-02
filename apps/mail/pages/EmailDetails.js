@@ -7,36 +7,39 @@ import EmailCompose from '../cmps/EmailCompose.js'
 export default {
     props: [],
     template: `
-        <section class="email-details">
+        <section class="email-details" if="email">
             <EmailNav/>
             <EmailCompose/>
             <EmailFilter/>
-            <h1>Email Details</h1>
-            
-            <!-- <h2> class="details-from"> {{ email.from }} </h2> |
-    <span class="details-subject"> {{ email.subject }} </span> |
-    <span class="details-body"> {{ email.body }} </span> -->
+            <!-- <pre> {{email}} </pre> -->
+            <div class="email-body">
+                <h2 class="details-from"> {{ email.from }} </h2>
+                <h3 class="details-subject"> {{ email.subject }} </h3> 
+                <h3 class="details-body"> {{ email.body }} </h3>
+            </div>
         </section>
     `,
-
     data() {
         return {
-
+            email: null
         }
     },
     methods: {
-        // loadEmail() {
-        //     console.log('email : ', email)
-        //     emailService.getEmail(this.email.id)
-        //         .then(email => this.email = email)
-        // }
-
+        loadEmail() {
+            emailService.getEmail(this.emailId)
+                .then(email => {
+                    this.email = email
+                    console.log('email : ', email)
+                })
+        }
     },
     computed: {
-
+        emailId() {
+            return this.$route.params.emailId
+        }
     },
     created() {
-
+        this.loadEmail()
     },
     components: {
         EmailCompose,

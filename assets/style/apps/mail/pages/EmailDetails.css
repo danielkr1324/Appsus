@@ -6,3 +6,8 @@
     min-width: 700px;
     padding: 20px;
 }
+
+.email-body {
+    padding: 10px;
+    background-color: rgb(205, 237, 255);
+}
