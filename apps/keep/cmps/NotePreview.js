@@ -9,8 +9,10 @@ export default {
   template: `
         <article class="note-preview"  :style="styleObject">
         <component :is="note.type" 
-          :note="note"/>
+          :note="note"
+          @toggle="toggleTodo"/>
           
+
             
             <button title="delete note"
               @click="deleteNote(note.id)" 
@@ -53,8 +55,9 @@ export default {
   methods: {
     deleteNote(noteId) {
       this.$emit('noteDeleted', noteId)
-      if (this.editedNote) this.$emit('editorOpened')
-      this.editedNote = null
+    },
+    toggleTodo(noteId, todo) {
+      this.$emit('toggle', noteId, todo)
     },
     duplicateNote(noteId) {
       this.$emit('noteDuplicate', noteId)

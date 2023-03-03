@@ -13,6 +13,7 @@ export const noteService = {
   editNote,
   updateBgc,
   duplicateNote,
+  toggleTodo,
 }
 
 function _createNotes() {
@@ -199,5 +200,14 @@ function updateBgc(noteId, color) {
 function duplicateNote(noteId) {
   return storageService.get(NOTES_KEY, noteId).then(note => {
     return storageService.post(NOTES_KEY, note)
+  })
+}
+
+function toggleTodo(noteId, currTodo) {
+  return storageService.get(NOTES_KEY, noteId).then(note => {
+    const todo = note.info.todos.find(todo => todo.txt === currTodo.txt)
+    if (!todo.doneAt) todo.doneAt = Date.now()
+    else todo.doneAt = null
+    return storageService.put(NOTES_KEY, note)
   })
 }

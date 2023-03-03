@@ -1,7 +1,7 @@
 export default {
   template: `
         <div class="note-color-palette">
-            <div class="colors" v-for="(color, index) in colors" 
+            <div  v-for="(color, index) in colors" 
             :key="index" class="color" 
             :style="{ backgroundColor: color }" 
             @click="setBackground(color)"></div>
@@ -17,6 +17,7 @@ export default {
         '#FFFBAC',
         '#00ffff',
         '#FFF80A',
+        '#9FE6A0',
       ],
     }
   },

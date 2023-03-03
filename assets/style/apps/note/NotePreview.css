@@ -1,13 +1,12 @@
 .note-preview {
     text-shadow: #F7F1E5 0px 0 2px;
+    padding: 5px;
     margin: 20px;
-    padding: 30px;
     max-width: 400px;
     border-radius: 7px;
     transition: 0.3s;
     break-inside: avoid;
     margin: 0 auto 25px auto ;
-    padding: 10px;
     position: relative;
 }
 

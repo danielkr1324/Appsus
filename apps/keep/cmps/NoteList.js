@@ -12,6 +12,7 @@ export default {
                      @noteDeleted="deleteNote"
                      @noteDuplicate="duplicateNote"
                      @colorSelected="setBackground"
+                     @toggle="toggleTodo"
                      />
                 </li>
             </ul>
@@ -20,6 +21,9 @@ export default {
   methods: {
     deleteNote(noteId) {
       this.$emit('noteDeleted', noteId)
+    },
+    toggleTodo(noteId, todo) {
+      this.$emit('toggle', noteId, todo)
     },
     duplicateNote(noteId) {
       this.$emit('noteDuplicate', noteId)

@@ -10,7 +10,8 @@ export default {
             :notes="notes"
             @noteDeleted="deleteNote"
             @noteDuplicate="duplicateNote"
-            @selectedColor="setBackground" />
+            @selectedColor="setBackground" 
+            @toggle="toggleTodo"/>
         </section>
         
         
@@ -24,6 +25,14 @@ export default {
   methods: {
     saveNote(note) {
       noteService.saveNote(note).then(note => this.notes.push(note))
+    },
+    toggleTodo(noteId, todo) {
+      noteService.toggleTodo(noteId, todo)
+      const todoTxt = todo.txt
+      let note = this.notes.find(note => note.id === noteId)
+      const currTodo = note.info.todos.find(todo => todo.txt === todoTxt)
+      if (!currTodo.doneAt) currTodo.doneAt = Date.now()
+      else currTodo.doneAt = null
     },
     deleteNote(noteId) {
       console.log(noteId)
