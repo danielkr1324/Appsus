@@ -12,7 +12,8 @@ export default {
         <EmailNav/>
         <EmailFilter/>
         <EmailList :emails="emails"
-        @removeEmail="removeEmail" />
+        @removeEmail="removeEmail"
+        @updateToRead="updateToRead" />
         <!-- <EmailCompose/> -->
     </section>
     `,
@@ -35,6 +36,10 @@ export default {
                     // showErrorMsg('Email remove failed')
                 })
         },
+        updateToRead(emailId) {
+            emailService.updateToRead(emailId).then(email => this.emails.push(email))
+
+        }
     },
     computed: {
 

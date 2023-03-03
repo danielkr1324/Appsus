@@ -7,6 +7,7 @@ export const emailService = {
     emailsQuery,
     getEmail,
     removeEmail,
+    updateToRead
 }
 
 _createEmails()
@@ -59,7 +60,7 @@ function _createEmails() {
                 id: 'e105',
                 subject: 'Halo Mail',
                 body: 'A new mail',
-                isRead: false,
+                isRead: true,
                 sentAt: 1551133900000,
                 removedAt: null,
                 from: 'puki@kuki.com',
@@ -84,10 +85,20 @@ function emailsQuery(filterBy = {}) {
 }
 
 function getEmail(emailId) {
-    // console.log(emailId);
     return storageService.get(EMAIL_KEY, emailId)
 }
 
 function removeEmail(emailId) {
-    return storageService.remove(EMAIL_KEY, emailId)
+    return storageService.get(EMAIL_KEY, emailId)
+        .then(email => {
+            console.log('email : ', email)
+            storageService.remove(EMAIL_KEY, email.id)
+        })
+}
+function updateToRead(emailId) {
+    return storageService.get(EMAIL_KEY, emailId)
+        .then(email => {
+            email.isRead = true
+            return storageService.put(EMAIL_KEY, email)
+        })
 }

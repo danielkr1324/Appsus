@@ -17,13 +17,13 @@ export default {
     methods: {
         removeEmail(emailId) {
             this.$emit('removeEmail', emailId)
-            console.log('emailId : ', emailId)
+            // console.log('emailId : ', emailId)
         }
     },
     computed: {
         isRead() {
             return {
-                fontWeight: (this.isRead) ? 'normal' : 'bold'
+                fontWeight: (this.email.isRead) ? 'normal' : 'bold'
             }
         }
     },

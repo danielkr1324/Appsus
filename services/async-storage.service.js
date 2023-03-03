@@ -43,6 +43,7 @@ function remove(entityType, entityId) {
         if (idx < 0) throw new Error(`Unknown Entity ${entityId}`)
         entities.splice(idx, 1)
         _save(entityType, entities)
+        console.log('entities : ', entities)
     })
 }
 
