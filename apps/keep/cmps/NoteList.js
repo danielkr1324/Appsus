@@ -10,7 +10,9 @@ export default {
                     <NotePreview
                      :note="note" 
                      @noteDeleted="deleteNote"
-                     @noteDuplicate="duplicateNote"/>
+                     @noteDuplicate="duplicateNote"
+                     @colorSelected="setBackground"
+                     />
                 </li>
             </ul>
         </section>
@@ -20,7 +22,10 @@ export default {
       this.$emit('noteDeleted', noteId)
     },
     duplicateNote(noteId) {
-      this.$emit('note-duplicate', noteId)
+      this.$emit('noteDuplicate', noteId)
+    },
+    setBackground(noteId, color) {
+      this.$emit('selectedColor', noteId, color)
     },
   },
   components: {

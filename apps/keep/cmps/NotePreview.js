@@ -2,6 +2,7 @@ import NoteTodos from './NoteTodos.js'
 import NoteImg from './NoteImg.js'
 import NoteTxt from './NoteTxt.js'
 import NoteVideo from './NoteVideo.js'
+import NoteColorPalette from './NoteColorPalette.js'
 
 export default {
   props: ['note'],
@@ -10,7 +11,7 @@ export default {
         <component :is="note.type" 
           :note="note"/>
           
-
+            
             <button title="delete note"
               @click="deleteNote(note.id)" 
               class="note-icon delete" >
@@ -23,11 +24,25 @@ export default {
                <i class="fa-solid fa-clone"></i>
             </button>
 
+            <button title="background color-palette"
+              @click="togglePalette"
+              class="note-icon palette">
+              <i class="fa-solid fa-palette"></i>
+            </button>
+
+            <NoteColorPalette 
+              v-show="isPaletteOn" 
+              @colorSelected="setBackground(note.id, $event)"
+              @click="togglePalette"/>
 
 
         </article>
     `,
-
+  data() {
+    return {
+      isPaletteOn: false,
+    }
+  },
   computed: {
     styleObject() {
       return this.note.style.backgroundColor
@@ -44,11 +59,19 @@ export default {
     duplicateNote(noteId) {
       this.$emit('noteDuplicate', noteId)
     },
+    setBackground(noteId, color) {
+      this.$emit('colorSelected', noteId, color)
+      this.note.style.backgroundColor = color
+    },
+    togglePalette() {
+      this.isPaletteOn = !this.isPaletteOn
+    },
   },
   components: {
     NoteTodos,
     NoteVideo,
     NoteTxt,
     NoteImg,
+    NoteColorPalette,
   },
 }

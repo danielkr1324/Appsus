@@ -189,9 +189,9 @@ function editNote(noteId, newNote) {
   })
 }
 
-function updateBgc(noteId, bgc) {
+function updateBgc(noteId, color) {
   return storageService.get(NOTES_KEY, noteId).then(note => {
-    note.style.backgroundColor = bgc
+    note.style.backgroundColor = color
     return storageService.put(NOTES_KEY, note)
   })
 }

@@ -9,7 +9,8 @@ export default {
            <NoteList
             :notes="notes"
             @noteDeleted="deleteNote"
-            @noteDuplicate="duplicateNote"/>
+            @noteDuplicate="duplicateNote"
+            @selectedColor="setBackground" />
         </section>
         
         
@@ -32,6 +33,9 @@ export default {
     },
     duplicateNote(noteId) {
       noteService.duplicateNote(noteId).then(note => this.notes.push(note))
+    },
+    setBackground(noteId, color) {
+      noteService.updateBgc(noteId, color)
     },
   },
   created() {

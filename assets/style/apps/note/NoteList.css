@@ -1,9 +1,9 @@
 .note-list ul {
-    margin: 0 auto;
+    /* margin: 50px auto; */
+    /* padding: 0; */
     position: relative;
     column-width: 300px;
-    column-gap: 10px;
-    padding: 10px 0;
+    column-gap: 20px;
     list-style: none;
     padding: 50px;
 }

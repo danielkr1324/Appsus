@@ -27,6 +27,7 @@
 @import 'apps/note/NotePreview.css';
 @import 'apps/note/NoteTodos.css';
 @import 'apps/note/NoteAdd.css';
+@import 'apps/note/NoteColorPallete.css';
 
 /* Index */
 @import 'apps/mail/pages/EmailIndex.css';
