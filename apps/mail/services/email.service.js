@@ -3,14 +3,15 @@ import { storageService } from '../../../services/async-storage.service.js'
 
 const EMAIL_KEY = 'emailsDB'
 
+_createEmails()
+
 export const emailService = {
     emailsQuery,
     getEmail,
     removeEmail,
-    updateToRead
+    save,
+    updateToRead,
 }
-
-_createEmails()
 
 function _createEmails() {
     let emails = utilService.loadFromStorage(EMAIL_KEY)
@@ -72,16 +73,17 @@ function _createEmails() {
 }
 
 function emailsQuery(filterBy = {}) {
-    return storageService.query(EMAIL_KEY).then(emails => {
-        if (filterBy.txt) {
-            const regex = new RegExp(filterBy.txt, 'i')
-            emails = emails.filter(email => regex.test(email.info.title))
-        }
-        if (filterBy.type) {
-            emails = emails.filter(email => email.type === filterBy.type)
-        }
-        return emails
-    })
+    return storageService.query(EMAIL_KEY)
+        .then(emails => {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                emails = emails.filter(email => regex.test(email.info.title))
+            }
+            if (filterBy.type) {
+                emails = emails.filter(email => email.type === filterBy.type)
+            }
+            return emails
+        })
 }
 
 function getEmail(emailId) {
@@ -89,12 +91,17 @@ function getEmail(emailId) {
 }
 
 function removeEmail(emailId) {
-    return storageService.get(EMAIL_KEY, emailId)
-        .then(email => {
-            console.log('email : ', email)
-            storageService.remove(EMAIL_KEY, email.id)
-        })
+    return storageService.remove(EMAIL_KEY, emailId)
 }
+
+function save(email) {
+    if (email.id) {
+        return storageService.put(EMAIL_KEY, email)
+    } else {
+        return storageService.post(EMAIL_KEY, email)
+    }
+}
+
 function updateToRead(emailId) {
     return storageService.get(EMAIL_KEY, emailId)
         .then(email => {

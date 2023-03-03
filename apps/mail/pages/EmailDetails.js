@@ -2,12 +2,12 @@ import { emailService } from '../services/email.service.js'
 
 import EmailFilter from '../cmps/EmailFilter.js'
 import EmailNav from '../cmps/EmailNav.js'
-import EmailCompose from '../cmps/EmailCompose.js'
+// import EmailCompose from '../cmps/EmailCompose.js'
 
 export default {
-    props: [],
+
     template: `
-    <section class="email-details" if="email">
+    <section class="email-details" v-if="email">
         <EmailNav/>
         <EmailFilter/>
         <!-- <pre> {{email}} </pre> -->
@@ -46,5 +46,4 @@ export default {
         EmailFilter,
         // EmailCompose,
     },
-    emits: [],
 }
