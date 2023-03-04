@@ -1,3 +1,26 @@
 .email-compose {
-    background-color: rgb(208, 127, 255);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    width: 400px;
+    height: 360px;
+
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
+}
+
+.email-compose input {
+    display: block;
+    width: 380px;
+    margin: 10px;
+}
+
+.compose-body {
+    height: 200px;
+}
+
+.email-compose button {
+    width: 380px;
+    margin: 10px;
 }

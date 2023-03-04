@@ -1,6 +1,8 @@
 .email-nav {
     display: grid;
-    grid-row: 1/4;
+    grid-row: 2/4;
+    grid-column: 1/2;
+    max-width: 200px;
     background-color: rgb(245, 244, 244);
     border-radius: 8px;
 }
@@ -15,18 +17,6 @@
 
 .email-nav span {
     margin-left: 20px;
-}
-
-.btn-compose {
-    border: solid 1px;
-    background-color: rgb(234, 242, 244);
-    border-radius: 8px;
-    padding: 10px;
-    margin: 10px;
-}
-
-.btn-compose:hover {
-    box-shadow: 2px 2px 2px 2px rgb(197, 197, 197);
 }
 
 .btns-nav {

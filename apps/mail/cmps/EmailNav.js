@@ -2,9 +2,6 @@ export default {
     props: [],
     template: `
     <section class="email-nav">
-        <div>
-            <button class="btn-compose">🖊️ Compose</button>
-        </div>
         <div class="btns-nav">
             <div><i class="fa-solid fa-inbox"></i> <span>Inbox</span></div>
             <div><i class="fa-regular fa-star"></i> <span>Stared</span></div>
@@ -14,22 +11,14 @@ export default {
         </div>
     </section>
     `,
+
     data() {
         return {
 
         }
     },
+
     methods: {
 
     },
-    computed: {
-
-    },
-    created() {
-
-    },
-    components: {
-
-    },
-    emits: [],
 }

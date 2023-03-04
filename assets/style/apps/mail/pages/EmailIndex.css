@@ -9,3 +9,17 @@
     max-width: 1200px;
     padding: 20px;
 }
+
+.btn-compose {
+    grid-column: 1/2;
+    width: 120px;
+    border: solid 1px;
+    background-color: rgb(234, 242, 244);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn-compose:hover {
+    box-shadow: 2px 2px 2px 2px rgb(197, 197, 197);
+}

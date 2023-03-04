@@ -28,6 +28,7 @@
 
 .details-nav {
     display: flex;
+    grid-column: 2/3;
     justify-content: space-around;
     margin-inline-start: 10px;
     width: 70px;
