@@ -11,9 +11,9 @@
 
 .note-add input {
     border-radius: 10px;
+    color: white;
     border: none;
     width: 300px;
-    background-color: #393053;
 }
  .btn-save {
     background: none;
@@ -26,4 +26,17 @@
 
 .btn-save:hover {
     scale: 1.1;
+}
+
+.note-type-set {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.note-type-set button {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
 }
