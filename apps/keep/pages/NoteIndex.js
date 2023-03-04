@@ -1,13 +1,15 @@
 import { noteService } from '../services/note.service.js'
 import NoteList from '../cmps/NoteList.js'
 import NoteAdd from '../cmps/NoteAdd.js'
+import NoteFilter from '../cmps/NoteFilter.js'
 
 export default {
   template: `
         <section class="note-index">
+           <NoteFilter @filter="setFilterBy" />
            <NoteAdd @saveNote="saveNote" />
            <NoteList
-            :notes="notes"
+            :notes="filteredNotes"
             @noteDeleted="deleteNote"
             @noteDuplicate="duplicateNote"
             @selectedColor="setBackground" 
@@ -24,6 +26,8 @@ export default {
   },
   methods: {
     saveNote(note) {
+      console.log(note)
+
       noteService.saveNote(note).then(note => this.notes.push(note))
     },
     toggleTodo(noteId, todo) {
@@ -46,11 +50,21 @@ export default {
     setBackground(noteId, color) {
       noteService.updateBgc(noteId, color)
     },
+    setFilterBy(filterBy) {
+      this.filterBy = filterBy
+    },
   },
   created() {
     noteService.notesQuery().then(notes => (this.notes = notes))
   },
+  computed: {
+    filteredNotes() {
+      const regex = new RegExp(this.filterBy.title, 'i')
+      return this.notes.filter(note => regex.test(note.info.title))
+    },
+  },
   components: {
+    NoteFilter,
     NoteAdd,
     NoteList,
   },

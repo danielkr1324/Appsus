@@ -34,6 +34,32 @@ function _createNotes() {
         },
       },
       {
+        id: 'trf513',
+        createdAt: 1112222,
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+          url: 'https://media.istockphoto.com/id/1322123064/photo/portrait-of-an-adorable-white-cat-in-sunglasses-and-an-shirt-lies-on-a-fabric-hammock.jpg?s=612x612&w=0&k=20&c=-G6l2c4jNI0y4cenh-t3qxvIQzVCOqOYZNvrRA7ZU5o=',
+          title: 'ChilloBoy',
+        },
+        style: {
+          backgroundColor: '#DFFFD8',
+        },
+      },
+      {
+        id: '333ew12',
+        createdAt: 1112233,
+        type: 'NoteVideo',
+        isPinned: false,
+        style: {
+          backgroundColor: '#F5FFC9',
+        },
+        info: {
+          url: 'https://www.youtube.com/embed/xgoNSNnfvZM',
+          title: 'No Panic',
+        },
+      },
+      {
         id: 'n101',
         createdAt: 1112222,
         type: 'NoteTxt',
@@ -44,6 +70,19 @@ function _createNotes() {
         info: {
           title: 'Do As I Say!!',
           txt: 'Fullstack Me Baby!',
+        },
+      },
+      {
+        id: 'n9999',
+        createdAt: 1112256,
+        type: 'NoteTxt',
+        isPinned: true,
+        style: {
+          backgroundColor: '#F9DBBB',
+        },
+        info: {
+          title: 'Passwords',
+          txt: 'Gmail: gM@1l222',
         },
       },
       {
@@ -70,6 +109,28 @@ function _createNotes() {
           todos: [
             { txt: 'Driving license', doneAt: null },
             { txt: 'Coding power', doneAt: 187111111 },
+            { txt: 'Coding power', doneAt: null },
+          ],
+        },
+        style: {
+          backgroundColor: '#B6EADA',
+        },
+      },
+      {
+        id: 'n198',
+        createdAt: 1112222,
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+          title: 'Do It All',
+          todos: [
+            { txt: 'feed my cat', doneAt: null },
+            { txt: 'go to the zoo', doneAt: 187111111 },
+            { txt: 'clean for passover', doneAt: null },
+            { txt: 'clean for passover', doneAt: 187111936 },
+            { txt: 'read some good stuff', doneAt: null },
+            { txt: 'read some bad stuff', doneAt: 187114219 },
+            { txt: 'complain about the weather', doneAt: 187112222 },
           ],
         },
         style: {
@@ -141,7 +202,7 @@ function saveNote(note) {
       type: 'NoteTodos',
       isPinned: false,
       info: {
-        label: note.info.label,
+        title: note.info.title,
         todos: note.info.todos,
       },
       style: {

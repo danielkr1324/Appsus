@@ -1,8 +1,10 @@
 .user-msg {
     position: fixed;
-    top: 40px;
+    bottom: 50px;
     right: 20px;
-
+    text-align: center;
+    font-weight: bold;
+    color: white;
     width: 290px;
     background-color: rgb(208, 206, 139);
     padding: 10px;
@@ -13,5 +15,5 @@
     background-color: rgb(88, 130, 88);
 }
 .error {
-    background-color: rgb(187, 104, 104);
+    background-color: black;
 }
