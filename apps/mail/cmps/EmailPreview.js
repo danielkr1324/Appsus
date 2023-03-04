@@ -4,10 +4,13 @@ export default {
     template: `
         <section>
         <RouterLink :to="'/email/'+email.id" :style="isRead" class="email-preview" >
-            <span class="preview-from"> {{ email.from }} </span> |
-            <span class="preview-subject"> {{ email.subject }}| {{ email.body }} </span>
-            </RouterLink>
-            <button class="btn-email-remove" @click="removeEmail(email.id)"> X </button>
+            <main class="preview-main">
+            <div class="preview-from"> {{ email.from }} </div> 
+            <div class="preview-subject"> {{ email.subject }}| {{ email.body }} </div>
+            <div class="preview-time"> {{ email.sentAt }} </div>
+        </main>
+        </RouterLink>
+        <!-- <button class="btn-email-remove" @click="removeEmail(email.id)"> X </button> -->
         </section>
     `,
 

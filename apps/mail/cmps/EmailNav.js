@@ -2,7 +2,7 @@ export default {
     props: [],
     template: `
     <section class="email-nav">
-        <div class="btn-compose">
+        <div>
             <button class="btn-compose">🖊️ Compose</button>
         </div>
         <div class="btns-nav">

@@ -1,7 +1,8 @@
 .email-nav {
     display: grid;
     grid-row: 1/4;
-    background-color: rgb(237, 237, 237);
+    background-color: rgb(245, 244, 244);
+    border-radius: 8px;
 }
 
 .email-nav div {
@@ -17,15 +18,16 @@
 }
 
 .btn-compose {
-    border: none;
-    background-color: rgb(243, 243, 243);
+    border: solid 1px;
+    background-color: rgb(234, 242, 244);
     border-radius: 8px;
+    padding: 10px;
     margin: 10px;
 }
 
-/* .btn-compose:hover {
-     box-shadow: black; 
- }  */
+.btn-compose:hover {
+    box-shadow: 2px 2px 2px 2px rgb(197, 197, 197);
+}
 
 .btns-nav {
     margin: 10px;

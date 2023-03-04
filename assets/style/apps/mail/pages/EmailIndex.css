@@ -1,8 +1,11 @@
-.email-details {
+.email-index {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
+
+    margin: 0 auto;
     gap: 5px;
 
     min-width: 700px;
+    max-width: 1200px;
     padding: 20px;
 }

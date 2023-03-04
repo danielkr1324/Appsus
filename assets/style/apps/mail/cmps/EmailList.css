@@ -1,3 +1,23 @@
 .email-list {
     grid-column: 2/3;
 }
+
+.preview-main {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr;
+    margin-bottom: 5px;
+}
+
+.preview-from {
+    grid-column: 1/2;
+}
+
+.preview-subject {
+    grid-column: 2/3;
+
+}
+
+.preview-time {
+    grid-column: 3/4;
+
+}
