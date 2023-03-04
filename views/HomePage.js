@@ -1,9 +1,9 @@
 export default {
     template: `
         <section class="home-page">
-            <RouterLink to="/email"><h1>Email</h1></RouterLink>
-            <RouterLink to="/keep"><h1>Keep</h1></RouterLink>
-            <h1>Books</h1>
+            <RouterLink to="/email"> <img class="email" src="/assets/img/email.png" alt="Email"> </RouterLink>
+            <RouterLink to="/keep"> <img class="keep" src="/assets/img/keep.png" alt="Keep"> </RouterLink>
+            <!-- <h1>Books</h1> -->
         </section>
     `,
 }

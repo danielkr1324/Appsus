@@ -3,3 +3,12 @@
     margin: 100px;
     justify-content: space-evenly;
 }
+
+.home-page .email {
+    width: 100px;
+    margin-top: 14px;
+}
+
+.home-page .keep {
+    width: 100px;
+}

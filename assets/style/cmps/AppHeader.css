@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: rgb(44, 59, 79);
+  color: rgb(220, 220, 220);
   padding: 1em 3em;
 }
 
