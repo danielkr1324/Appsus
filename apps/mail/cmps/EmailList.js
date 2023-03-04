@@ -1,9 +1,9 @@
 import EmailPreview from './EmailPreview.js'
 
 export default {
-    props: ['emails'],
+  props: ['emails'],
 
-    template: `
+  template: `
     <section class="email-list">
         <ul>
             <li v-for="email in emails" :key="email.id" >
@@ -13,18 +13,18 @@ export default {
     </section>
     `,
 
-    methods: {
-        removeEmail(emailId) {
-            this.$emit('emailRemoved', emailId)
-            // console.log('emailId : ', emailId)
-        },
-        changeToRead(emailId) {
-            // console.log('emailId : ', emailId)
-            this.$emit('updateToRead', emailId)
-        }
+  methods: {
+    removeEmail(emailId) {
+      this.$emit('emailRemoved', emailId)
+      // console.log('emailId : ', emailId)
     },
+    changeToRead(emailId) {
+      // console.log('emailId : ', emailId)
+      this.$emit('updateToRead', emailId)
+    },
+  },
 
-    components: {
-        EmailPreview
-    },
+  components: {
+    EmailPreview,
+  },
 }

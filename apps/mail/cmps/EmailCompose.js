@@ -1,7 +1,7 @@
 import { emailService } from '../services/email.service.js'
 
 export default {
-    template: `
+  template: `
     <section class="email-compose">
             <form @submit.preventDefault()="send">
                 <input type="text" v-model="email.to" placeholder="To">
@@ -9,25 +9,20 @@ export default {
                 <input class="compose-body" type="text" v-model="email.body">
                 <button class="btn-send">Send</button>
             </form>
-            <!-- <pre> {{email}} </pre> -->
+            <pre> {{email}} </pre>
     </section>
     `,
 
-    data() {
-        return {
-            email: emailService.getNewEmail()
-        }
-    },
+  data() {
+    return {
+      email: emailService.getNewEmail(),
+    }
+  },
 
-    methods: {
-        send() {
-            console.log('Here')
-            emailService.sendEmail(this.email)
-                .then(savedEmail => {
-                    console.log('email saved', savedEmail)
-                    // showSuccessMsg('email saved')
-                    // this.$emit('toggleCompose')
-                })
-        }
+  methods: {
+    send() {
+      console.log('Here')
+      this.$emit('sendEmail', this.email)
     },
+  },
 }
