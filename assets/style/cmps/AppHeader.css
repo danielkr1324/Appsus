@@ -11,7 +11,3 @@
   margin-inline: 10px;
 }
 
-@media(max-width: 720px) {
-  .app-header {
-  }
-}
