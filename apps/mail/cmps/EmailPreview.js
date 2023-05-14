@@ -8,7 +8,7 @@ export default {
             <div class="preview-from"> {{ email.from }} </div> 
             <div class="preview-subject"> {{ email.subject }} &nbsp;|&nbsp; {{ email.body }} </div>
             <!-- <div class="preview-time" :sentAt="convertDate(email.sentAt)"> {{sentAt}} </div> -->
-            <button class="btn-email-remove" @click.stop="removeEmail(email.id)">  <i class="fa-regular fa-trash-can"></i> </button>
+            <!-- <button class="btn-email-remove" @click.stop="removeEmail(email.id)">  <i class="fa-regular fa-trash-can"></i> </button> -->
         </main>
         </RouterLink>
         </section>
@@ -40,15 +40,15 @@ export default {
       console.log(timeStamp)
       console.log(
         'Date: ' +
-          date.getDate() +
-          '/' +
-          (date.getMonth() + 1) +
-          '/' +
-          date.getFullYear() +
-          ' ' +
-          date.getHours() +
-          ':' +
-          date.getMinutes()
+        date.getDate() +
+        '/' +
+        (date.getMonth() + 1) +
+        '/' +
+        date.getFullYear() +
+        ' ' +
+        date.getHours() +
+        ':' +
+        date.getMinutes()
       )
     },
   },
