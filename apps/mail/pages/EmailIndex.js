@@ -9,9 +9,10 @@ export default {
   template: `
     <section class="email-index">
         <button class="btn-compose" @click="toggleCompose">🖊️ Compose</button>
-        <EmailNav @folder="setFilterBy" />
-        <EmailFilter
+        <EmailNav @folder="setFolder" />
+        <EmailFilter :filterBy="filterBy"
         @filter="setFilterBy" />
+        {{filterBy}}
         <EmailList 
             v-if="emails"
             :emails="filteredEmails"
@@ -26,7 +27,7 @@ export default {
   data() {
     return {
       emails: [],
-      filterBy: { folder: 'inbox' },
+      filterBy: {},
       isCompose: false,
     }
   },
@@ -34,6 +35,7 @@ export default {
   methods: {
     setFolder(folder) {
       this.filterBy.folder = folder
+      this.getEmails()
     },
     onSendEmail(email) {
       console.log('index', email)
@@ -54,12 +56,16 @@ export default {
     },
     setFilterBy(filterBy) {
       this.filterBy.subject = filterBy.subject
+    },
+    getEmails() {
+      emailService.emailsQuery(this.filterBy)
+        .then(emails => (this.emails = emails))
     }
   },
 
   created() {
-    emailService.emailsQuery(this.filterBy)
-      .then(emails => (this.emails = emails))
+    this.filterBy.folder = 'inbox'
+    this.getEmails()
   },
   computed: {
     filteredEmails() {

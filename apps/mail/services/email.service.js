@@ -78,7 +78,7 @@ function _createEmails() {
       },
       {
         id: 'e106',
-        subject: 'Halo Mail',
+        subject: 'Well that is refreshing',
         body: 'A new mail',
         isRead: true,
         isStared: false,
@@ -102,8 +102,8 @@ function _createEmails() {
       },
       {
         id: 'e108',
-        subject: 'Halo Mail',
-        body: 'A new mail',
+        subject: 'DJ Khaled',
+        body: 'Another one',
         isRead: true,
         isStared: false,
         isChecked: false,
@@ -120,12 +120,8 @@ function _createEmails() {
 
 function emailsQuery(filterBy = {}) {
   return storageService.query(EMAIL_KEY).then(emails => {
-    if (filterBy.txt) {
-      const regex = new RegExp(filterBy.txt, 'i')
-      emails = emails.filter(email => regex.test(email.info.title))
-    }
-    if (filterBy.type) {
-      emails = emails.filter(email => email.type === filterBy.type)
+    if (filterBy.folder) {
+      emails = emails.filter(email => email.folder === filterBy.folder)
     }
     return emails
   })
