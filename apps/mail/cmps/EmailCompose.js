@@ -9,16 +9,17 @@ export default {
                 <input class="compose-body" type="text" v-model="email.body">
                 <button class="btn-send">Send</button>
             </form>
-            <pre> {{email}} </pre>
     </section>
     `,
 
   data() {
     return {
-      email: emailService.getNewEmail(),
+      email: null,
     }
   },
-
+  created() {
+    this.email = emailService.getNewEmail()
+  },
   methods: {
     send() {
       console.log('Here')

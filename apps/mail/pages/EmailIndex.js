@@ -8,17 +8,17 @@ import EmailCompose from '../cmps/EmailCompose.js'
 export default {
   template: `
     <section class="email-index">
-    <button class="btn-compose" @click="toggleCompose">🖊️ Compose</button>
-        <EmailNav 
-        @showSent="onShowSent"
-        @showInbox="onShowInbox"/>
-        <EmailFilter/>
+        <button class="btn-compose" @click="toggleCompose">🖊️ Compose</button>
+        <EmailNav @folder="setFilterBy" />
+        <EmailFilter
+        @filter="setFilterBy" />
         <EmailList 
-            :emails="showEmails"
+            v-if="emails"
+            :emails="filteredEmails"
             @emailRemoved="onRemoveEmail"
             @updateToRead="updateToRead" />
         <EmailCompose
-         v-if="compose" 
+         v-if="isCompose" 
          @sendEmail="onSendEmail"/>
     </section>
     `,
@@ -26,19 +26,14 @@ export default {
   data() {
     return {
       emails: [],
-      sentEmails: [],
-      filterBy: {},
-      compose: emailService.toggleCompose(),
-      isSent: false,
+      filterBy: { folder: 'inbox' },
+      isCompose: false,
     }
   },
 
   methods: {
-    onShowInbox() {
-      this.isSent = false
-    },
-    onShowSent() {
-      this.isSent = true
+    setFolder(folder) {
+      this.filterBy.folder = folder
     },
     onSendEmail(email) {
       console.log('index', email)
@@ -55,22 +50,22 @@ export default {
       emailService.updateToRead(emailId).then(email => (this.email = email))
     },
     toggleCompose() {
-      let isCompose = emailService.toggleCompose()
-      this.compose = isCompose
-      console.log('isCompose : ', isCompose)
+      this.isCompose = !this.isCompose
     },
+    setFilterBy(filterBy) {
+      this.filterBy.subject = filterBy.subject
+    }
   },
 
   created() {
-    emailService.emailsQuery().then(emails => (this.emails = emails))
-    emailService
-      .sentEmailsQuery()
-      .then(sentEmails => (this.sentEmails = sentEmails))
+    emailService.emailsQuery(this.filterBy)
+      .then(emails => (this.emails = emails))
   },
   computed: {
-    showEmails() {
-      return this.isSent ? this.sentEmails : this.emails
-    },
+    filteredEmails() {
+      const regex = new RegExp(this.filterBy.subject, 'i')
+      return this.emails.filter(email => regex.test(email.subject))
+    }
   },
 
   components: {

@@ -1,6 +1,6 @@
 export default {
   template: `
-        <section class="note-filter">
+        <section class="btn-filter-type">
             <input 
                 v-model="filterBy.title"
                 placeholder="Search By Title"

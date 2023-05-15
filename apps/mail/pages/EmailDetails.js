@@ -2,7 +2,6 @@ import { emailService } from '../services/email.service.js'
 // import { eventBusService } from '../../../services/event-bus.service.js'
 
 import EmailNav from '../cmps/EmailNav.js'
-// import EmailCompose from '../cmps/EmailCompose.js'
 
 export default {
   template: `
@@ -27,7 +26,6 @@ export default {
     loadEmail() {
       emailService.getEmail(this.emailId).then(email => {
         this.email = email
-        // console.log('email : ', email)
       })
     },
     removeEmail(emailId) {
@@ -45,6 +43,5 @@ export default {
   },
   components: {
     EmailNav,
-    // EmailCompose,
   },
 }
