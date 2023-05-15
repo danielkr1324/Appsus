@@ -12,7 +12,6 @@ export default {
         <EmailNav @folder="setFolder" />
         <EmailFilter :filterBy="filterBy"
         @filter="setFilterBy" />
-        {{filterBy}}
         <EmailList 
             v-if="emails"
             :emails="filteredEmails"
