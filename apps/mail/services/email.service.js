@@ -11,6 +11,7 @@ export const emailService = {
   removeEmail,
   sendEmail,
   updateToRead,
+  moveToTrash,
   getNewEmail,
 }
 
@@ -21,7 +22,7 @@ function _createEmails() {
       {
         id: 'e101',
         subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        body: 'Would love to catch up sometimes whenever you are free to talk',
         isRead: false,
         isStared: false,
         isChecked: false,
@@ -127,7 +128,6 @@ function emailsQuery(filterBy = {}) {
   })
 }
 
-
 function getEmail(emailId) {
   return storageService.get(EMAIL_KEY, emailId)
 }
@@ -138,10 +138,17 @@ function removeEmail(emailId) {
 
 function sendEmail(email) {
   if (email.id) {
-    return storageService.post(SENT_EMAIL_KEY, email)
+    return storageService.post(EMAIL_KEY, email)
   } else {
-    return storageService.put(SENT_EMAIL_KEY, email)
+    return storageService.put(EMAIL_KEY, email)
   }
+}
+
+function moveToTrash(emailId) {
+  return storageService.get(EMAIL_KEY, emailId).then(email => {
+    email.folder = 'trash'
+    return storageService.put(EMAIL_KEY, email)
+  })
 }
 
 function updateToRead(emailId) {

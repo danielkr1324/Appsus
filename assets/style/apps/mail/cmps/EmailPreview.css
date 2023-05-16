@@ -1,14 +1,36 @@
+.preview-from {
+    grid-column: 1/2;
+}
+
+.preview-subject {
+    grid-column: 2/3;
+
+}
+
 .email-preview {
-    display: block;
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+
     padding: 5px;
     border-block: solid rgb(200, 200, 200) 0.5px;
 }
 
 .email-preview:hover {
-    outline: auto;
-    transition: 500ms;
+    background-color: rgb(223, 239, 248);
+    transition: 200ms;
 }
 
 .email-preview button {
     width: 20px;
+}
+
+.preview-main {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    margin-bottom: 5px;
+    min-width: 700px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

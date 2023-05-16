@@ -35,6 +35,7 @@ export default {
     setFolder(folder) {
       this.filterBy.folder = folder
       this.getEmails()
+      console.log('this.emails : ', this.emails)
     },
     onSendEmail(email) {
       console.log('index', email)
@@ -43,9 +44,10 @@ export default {
     },
     onRemoveEmail(emailId) {
       console.log('index', emailId)
-      emailService.removeEmail(emailId)
       let emailIndx = this.emails.findIndex(email => email.id === emailId)
-      this.emails.splice(emailIndx, 1)
+      emailService.moveToTrash(emailId)
+      console.log('this.emails : ', this.emails)
+      this.getEmails()
     },
     updateToRead(emailId) {
       emailService.updateToRead(emailId).then(email => (this.email = email))
